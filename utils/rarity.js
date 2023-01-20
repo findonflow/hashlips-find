@@ -67,8 +67,13 @@ for (var layer in rarityData) {
       ((rarityData[layer][attribute].occurrence / editionSize) * 100).toFixed(2);
 
     // show two decimal places in percent
-    rarityData[layer][attribute].occurrence =
-      `${rarityData[layer][attribute].occurrence} in ${editionSize} editions (${chance} %)`;
+    rarityData[layer][attribute] =
+    {
+      layer: layer,
+      trait: attribute,
+      occured: rarityData[layer][attribute].occurrence,
+      max: editionSize
+    };
   }
 }
 
